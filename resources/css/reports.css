@@ -1,0 +1,24 @@
+.reports-container {
+    display: none;
+    flex-flow: column;
+}
+
+.reports-container h1 {
+    font-size: 250%;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.reports-container .report {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.reports-container .report .gen-rpt-btn {
+    font-size: 150%;
+    padding: 10px 0;
+    width: 300px;
+}

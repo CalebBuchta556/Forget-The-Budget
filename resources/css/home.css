@@ -1,0 +1,227 @@
+.home-container {
+    display: ;
+}
+
+.card {
+    width: 100%;
+    height: 225px;
+    text-align: center;
+}
+
+.savings-rate {
+    display: none;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+.savings-card {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 300px;
+    padding: 30px;
+}
+
+.savings-card h1 {
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.rate-change {
+    display: flex;
+    flex-flow: row;
+    height: 50px;
+    width: 300px;
+    flex: ;
+    align-items: center;
+}
+
+.savings-card .rate-change input {
+    flex: 1;
+    height: 50px;
+    font-size: 16px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.savings-card .rate-change button {
+    border-radius: 0;
+    font-size: 16px;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    background-color: var(--primary-purple);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.savings-card .rate-change button:hover {
+    background-color: var(--secondary-purple);
+    box-shadow: none;
+    transform: none;
+    cursor: pointer;
+}
+
+.savings-card .close,
+.card-header .close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    transition: transform 0.2s;
+}
+
+.savings-card .close ion-icon,
+.card-header .close ion-icon {
+    font-size: 28px;
+    color: #555;
+    padding: 5px;
+    border-radius: 99px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+}
+
+.savings-card .close:hover,
+.card-header .close:hover {
+    transform: scale(1.1);
+}
+
+.overview .card-header {
+    position: relative;
+    grid-column: 1/5;
+    padding: 30px 80px;
+    margin-bottom: 20px;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    background: rgb(135,228,176);
+    background: linear-gradient(135deg, rgba(135,228,176,1) 1%, rgba(239,121,121,1) 30%, rgba(135,144,228,1) 70%, rgba(83,157,237,1) 100%);
+    color: #fff;
+}
+
+.overview .card-header h2 {
+    text-transform: uppercase;
+}
+
+.overview .card-header p {
+    margin-top: 10px;
+}
+
+.card-overview {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-overview h3 {
+    font-size: 400%;
+}
+
+.card-overview p {
+    font-size: 120%;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.card-overview ion-icon {
+    font-size: 180%;
+    border-radius: 99px;
+    padding: 10px;
+    color: #fff;
+}
+
+.overview .inc ion-icon {background-color: var(--primary-green);}
+
+.overview .exp ion-icon {background-color: var(--primary-red);}
+
+.overview .savings ion-icon {background-color: var(--primary-blue);}
+
+.overview .goals ion-icon {background-color: var(--primary-purple);}
+
+.overview .goals {position: relative;}
+
+.overview .goals button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--primary-purple);
+}
+
+.results .large-left {grid-column: 1/3;}
+
+.results .large-right {grid-column: 3/5;}
+
+.results .btn {align-self: flex-end;}
+
+.results .exp button {background-color: var(--primary-red);}
+
+.results .history button {background-color: var(--primary-blue);}
+
+.results .goals button {background-color: var(--primary-purple);}
+
+.title {grid-column: 1/5;}
+
+.title h2 {font-size: 250%;}
+
+.overview,
+.results {
+    display: grid;
+    gap: 30px;
+    padding: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.overview {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.results {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.results .card {
+    height: 500px;
+    padding: 30px;
+    display: flex;
+    flex-flow: column;
+}
+
+.results .card h2 {
+    text-align: left;
+    font-size: 150%;
+    margin-bottom: 20px;
+}
+
+.results .content {
+    flex: 1;
+    background-color: #fafafa;
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    color: #eaeaea;
+    font-weight: 300;
+}
+
+.results .goals {
+    display: none;
+}
+
+.results .history {
+    grid-column: 1/5;
+}

@@ -1,0 +1,15 @@
+.exp-sheet {
+    visibility: hidde;
+}
+
+.exp-sheet .sheet-content .add-form button {
+    background-color: var(--primary-red);
+}
+
+.exp-sheet .sheet-content .add-form button:hover {
+    background-color: var(--secondary-red);
+}
+
+.exp-sheet .sheet-list ul li p {
+    background-color: var(--primary-red);
+}
