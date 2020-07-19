@@ -13,7 +13,7 @@
     flex-flow: row;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.5);
     position: absolute;
     top: 0%;
     left: 0%;
@@ -31,6 +31,10 @@
     width: 500px;
     height: 300px;
     padding: 30px;
+}
+
+.savings-card:hover {
+    transform: none;
 }
 
 .savings-card h1 {
@@ -105,13 +109,17 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-    background: rgb(135,228,176);
     background: linear-gradient(135deg, rgba(135,228,176,1) 1%, rgba(239,121,121,1) 30%, rgba(135,144,228,1) 70%, rgba(83,157,237,1) 100%);
     color: #fff;
 }
 
+.overview .card-header a {
+    text-decoration: underline;
+    color: #fff;
+}
+
 .overview .card-header h2 {
-    text-transform: uppercase;
+    font-size: 200%;
 }
 
 .overview .card-header p {
@@ -148,11 +156,11 @@
 
 .overview .savings ion-icon {background-color: var(--primary-blue);}
 
-.overview .goals ion-icon {background-color: var(--primary-purple);}
+.overview .rate ion-icon {background-color: var(--primary-purple);}
 
-.overview .goals {position: relative;}
+.overview .rate {position: relative;}
 
-.overview .goals button {
+.overview .rate button {
     position: absolute;
     top: -10px;
     right: -10px;
@@ -169,11 +177,21 @@
 
 .results .history button {background-color: var(--primary-blue);}
 
-.results .goals button {background-color: var(--primary-purple);}
+.results .rate button {background-color: var(--primary-purple);}
 
-.title {grid-column: 1/5;}
+.title {
+    grid-column: 1/5;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .title h2 {font-size: 250%;}
+
+.title select {
+    visibility: hidden;
+}
 
 .overview,
 .results {
@@ -181,7 +199,7 @@
     gap: 30px;
     padding: 30px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
 }
 
 .overview {

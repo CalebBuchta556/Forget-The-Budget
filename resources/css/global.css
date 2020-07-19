@@ -68,6 +68,12 @@ p {
 
 /****** REUSEABLE COMPONENTS ******/
 
+.input-error, {
+    border: 1px solid var(--primary-red);
+    color: var(--primary-red);
+}
+
+
 ul {
     margin: 0;
     padding: 0;
@@ -85,7 +91,7 @@ ul li {
 }
 
 .card:hover {
-    box-shadow: 0px 5px 10px rgba(3, 1, 1, 0.2);
+    box-shadow: 0px 5px 10px rgba(3, 1, 1, 0.15);
     transform: translateY(-1px);
 }
 
@@ -126,6 +132,19 @@ button {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+.read-more {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.read-more:hover {
+    color: #eaeaea;
 }
 
 .btn {
@@ -194,7 +213,7 @@ button {
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100vw;
     height: 70px;
@@ -212,6 +231,11 @@ header {
     width: 100px;
 }
 
+.safe-to-spend {
+    flex: 1;
+    text-align: center;
+}
+
 .safe-to-spend h3 {
     text-transform: uppercase;
     font-size: 150%;
@@ -226,18 +250,43 @@ header {
     color: var(--primary-green);
 }
 
+.main-nav ul {
+    display: flex;
+}
+
 .main-nav ul li {
     display: inline-block;
     font-weight: 600;
-    margin: auto 15px;
+    margin: 5px 15px auto 15px;
     padding-bottom: 5px;
-    border-bottom: 3px solid transparent;
+    border-bottom: 2px solid transparent;
 }
 
 .main-nav ul li:hover {
-    border-bottom: 3px solid var(--primary-green);
+    border-bottom: 2px solid var(--primary-green);
     padding-bottom: 5px;
     cursor: pointer;
+}
+
+.user {
+    display: none;
+    height: 35px;
+    width: 35px;
+    overflow: hidden;
+    border-radius: 99px;
+    border: 2px solid var(--primary-blue);
+    margin-left: 15px;
+    transition: transform 0.2s;
+}
+
+.user:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.user a img {
+    width: 100%;
+    height: auto;
 }
 
 /****** APP BODY ******/
@@ -284,33 +333,64 @@ header {
 }
 
 .sidebar label ion-icon {
+    opacity: 0.1;
     padding: 18px;
     font-size: 170%;
+    transition: opacity 0.2s;
+    transition-delay: 1000ms;
+}
+
+.sidebar #lock-closed {
+    display: none;
+    margin-bottom: 4px;
+}
+
+.sidebar input[type=checkbox]:checked ~ label #lock-closed {
+    display: block;
+    opacity: 1;
+}
+
+.sidebar input[type=checkbox]:checked ~ label #lock-open {
+    display: none;
+}
+
+.sidebar:hover label ion-icon {
+    opacity: 1;
+}
+
+.sidebar:hover ul li,
+.sidebar input[type=checkbox]:checked ~ ul li {
+    width: 165px;
+    transition: width 0.2s;
+    transition-delay: 1000ms;
 }
 
 .sidebar ul li {
-    width: 165px;
+    width: 65px;
     transition: width 0.2s;
 }
 
-.sidebar input[type=checkbox]:checked ~ ul li {
-    width: 65px;
-}
-
-.sidebar input[type=checkbox]:checked ~ ul li button span {
+.sidebar ul li button span {
     position: absolute;
     opacity: 0;
     transition: opacity 0.1s, transform 0.2s;
-    transform: translateX(-100%);
 }
 
-.sidebar span {
+.sidebar:hover span,
+.sidebar input[type=checkbox]:checked ~ ul li span {
     display: inline-block;
     padding-right: 10px;
     position: absolute;
     transition: opacity 0.1s, transform 0.2s;
-    transition-delay: 100ms;
+    transition-delay: 1000ms;
     opacity: 1;
+}
+
+.sidebar .tag {
+    font-size: 10px;
+    font-weight: 900;
+    margin-left: 35px;
+    color: rgb(196, 177, 35);
 }
 
 .sidebar ul li button {
@@ -378,6 +458,7 @@ header {
 }
 
 .sheet {
+    visibility: visible;
     display: flex;
     flex-flow: column;
     background-color: #fff;
@@ -393,7 +474,7 @@ header {
     animation-duration: 0.3s;
 }
 
-.sheet .inc-copy p {
+.sheet p {
     margin-bottom: 20px;
 }
 
