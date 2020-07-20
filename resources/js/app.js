@@ -8,7 +8,13 @@ window.budgetData = budgetData;
 window.calculateBudget = calculateBudget;
 window.updateOverview = updateOverview;
 
+var isClosed = 0;
+
 // Event lisenters
+document.getElementById('dark-mode').addEventListener('click', () => {
+    UIControl.switchTheme();
+});
+
 document.querySelector('.inc').addEventListener('click', () => {
     toggleSheet('inc-sheet', 'exp-sheet');
 });
@@ -43,6 +49,7 @@ document.querySelector('.inc-list').addEventListener('click', () => {
     itemID = event.target.parentNode.parentNode.id;
 
     deleteIncItem(itemID);
+    console.log(itemID);
 });
 
 document.querySelector('.exp-list').addEventListener('click', () => {
@@ -83,6 +90,8 @@ document.querySelector('.close-rate-btn').addEventListener('click', () => {
 
 document.querySelector('.close-welcome-btn').addEventListener('click', () => {
     closeWelcome();
+    isClosed = 1;
+    localStorage.setItem('isClosed', JSON.stringify(isClosed));
 })
 
 document.querySelector('.res-inc-btn').addEventListener('click', () => {
@@ -95,6 +104,17 @@ document.querySelector('.res-exp-btn').addEventListener('click', () => {
 
 document.querySelector('.change-rate').addEventListener('click', () => {
     changeSavingsRate();
+})
+
+document.querySelector('.click-background').addEventListener('click', () => {
+    closeRate();
+})
+
+document.querySelector('.reset-btn').addEventListener('click', () => {
+    BudgetControl.changeRate(0);
+    clearAllItems('inc');
+    clearAllItems('exp');
+    console.log('clicked');
 })
 
 var formatNumber = function(num, type) {
@@ -258,6 +278,9 @@ function deleteIncItem (id) {
 
     // Update the budget
     BudgetControl.calculateBudget();
+
+    // Update the overview
+    UIControl.updateOverview();
 }
 
 // Delete expense item
@@ -271,6 +294,9 @@ function deleteExpItem (id) {
 
     // Update the budget
     BudgetControl.calculateBudget();
+
+    // Update the overview
+    UIControl.updateOverview();
 }
 
 function clearAllItems (type) {
@@ -282,6 +308,9 @@ function clearAllItems (type) {
 
     // Update budget
     BudgetControl.calculateBudget();
+
+    // Update the overview
+    UIControl.updateOverview();
 }
 
 function changeSavingsRate () {
@@ -362,3 +391,37 @@ function closeRate () {
 
     savingsRate.style.display = 'none';
 }
+
+// Initialization
+function init () {
+
+    // Retrieve previous stored budget
+    BudgetControl.getStoredBudget();
+
+    // Restore UI list items
+    UIControl.restoreListItems();
+
+    // Update the UI with stored budget data
+    UIControl.updateOverview();
+
+    // Check if welcome header is closed
+    let welcomeClosed;
+
+    welcomeClosed = JSON.parse(localStorage.getItem('isClosed'));
+
+    // if (welcomeClosed === 1) {
+    //     closeWelcome();
+    // }
+
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
+}
+
+init();

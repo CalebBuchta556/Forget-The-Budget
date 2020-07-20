@@ -1,12 +1,11 @@
 /***** BUDGET CONTROLLER *****/
-import { updateOverview } from './ui.js';
 
 // Budget data
 export var budgetData = {
     inputs: {
         inc: [],
         exp: [],
-        rate: 25
+        rate: 0
     },
     totals: {
         inc: 0,
@@ -14,9 +13,9 @@ export var budgetData = {
         savings: 0,
         safe: 0
     }
-
 }
 
+// Inc and exp objects
 function Income (id, description, value) {
     this.id = id;
     this.description = description;
@@ -32,6 +31,7 @@ function Expense (id, description, value) {
 export function addItem (type, description, value) {
     let id, newItem;
 
+    // if (type === 'inc') {}
     // Give the new item a unique id
     if (budgetData.inputs[type].length > 0) {
         id = (budgetData.inputs[type].length - 1) + 1;
@@ -41,9 +41,9 @@ export function addItem (type, description, value) {
 
     // Determine if its an inc or exp
     if (type === 'inc') {
-        newItem = new Income(id, description, value);
+        newItem = new Income('inc-' + id, description, value);
     } else {
-        newItem = new Expense(id, description, value);
+        newItem = new Expense('exp-' + id, description, value);
     }
 
     // Push new item to data
@@ -63,15 +63,17 @@ export function deleteItem (type, id) {
             
     index = ids.indexOf(id);
     
-    if (index > -1) {
-        budgetData.inputs[type].splice(index, 1);
-    }
-        
+    budgetData.inputs[type].splice(index, 1); 
 }
 
 export function clearBudget (type) {
     // Delete from inputs array
     budgetData.inputs[type].splice(0, budgetData.inputs[type].length);
+    
+    // Set default string for local storage to prevent error
+    let defaultString = '{\"inputs\":{\"inc\":[],\"exp\":[],\"rate\":0},\"totals\":{\"inc\":0,\"exp\":0,\"savings\":0,\"safe\":0}}';
+
+    // localStorage.setItem('storedBudget', defaultString);
 }
 
 export function changeRate (rate) {
@@ -81,9 +83,13 @@ export function changeRate (rate) {
 function calculateTotal (type) {
     let sum = 0;
 
-    budgetData.inputs[type].forEach(el => {
-        sum = sum + el.value;
-    });
+    sum = budgetData.inputs[type].reduce(
+        (acc, cur) => {
+            return acc + cur.value;
+        },
+        0
+    );
+
     budgetData.totals[type] = sum;
 }
 
@@ -102,6 +108,17 @@ export function calculateBudget () {
 
     // Calculate safe to spend amount
     budgetData.totals['safe'] = afterSavings - budgetData.totals['exp'];
+
+    // Store budget data in local storage
+    localStorage.setItem('storedBudget', JSON.stringify(budgetData));
+}
+
+export function getStoredBudget () {
+    // Pull string data from local storage
+    let budgetString = localStorage.getItem('storedBudget');
+
+    // Parse stored budget data string
+    budgetData = JSON.parse(budgetString);
 }
 
 function getBudgetData () {

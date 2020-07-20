@@ -22,6 +22,16 @@
     z-index: 4;
 }
 
+.click-background {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 4;
+}
+
 .savings-card {
     position: relative;
     display: flex;
@@ -31,6 +41,7 @@
     width: 500px;
     height: 300px;
     padding: 30px;
+    z-index: 5;
 }
 
 .savings-card:hover {
@@ -193,6 +204,17 @@
     visibility: hidden;
 }
 
+.title .reset-btn {
+    background-color: var(--primary-red);
+    color: #fff;
+    font-size: 12px;
+}
+
+.title .reset-btn ion-icon {
+    vertical-align: -1px;
+    margin-left: 5px;
+}
+
 .overview,
 .results {
     display: grid;
@@ -225,7 +247,6 @@
 
 .results .content {
     flex: 1;
-    background-color: #fafafa;
     margin-bottom: 20px;
 
     display: flex;

@@ -19,8 +19,10 @@
             <div class="logo">
                 <img src="./resources/img/Logo.png">
             </div>
-            <div class="safe-to-spend">
-                <h3>You can spend <span class="safe-txt">$0</span> this month</h3>
+            <div class="middle">
+                <div class="safe-to-spend">
+                    <h3>You can spend <span class="safe-txt">$0</span> this month</h3>
+                </div>
             </div>
             <div class="main-nav">
                 <ul>
@@ -28,9 +30,13 @@
                     <li><a class="btn-simple" href="#">Contact</a></li>
                 </ul>
             </div>
-            <div class="user">
+            <!-- <div class="dark-mode"> -->
+                <input id="dark-mode" type="checkbox" class="dark-mode-switch">
+                <label class="dark-mode-label" for="dark-mode"><ion-icon name='contrast-outline'></ion-icon></label>
+            <!-- </div> -->
+            <!-- <div class="user">
                 <a><img src="./resources/img/Headshot.jpg"></a>
-            </div>
+            </div> -->
     </header>
 
     <div class="app-body">
@@ -53,7 +59,7 @@
                 <li class="report"><button><ion-icon name="document-outline"></ion-icon><span>Reports</span><br><span class="tag">COMING SOON</span></button></li>
             </ul>
             <ul>
-                <li class="settings"><button><ion-icon name="settings-outline"></ion-icon><span>Settings</span></button></li>
+                <li class="settings"><button><ion-icon name="settings-outline"></ion-icon><span>Settings</span><br><span class="tag">COMING SOON</span></button></li>
             </ul>
             
         </div>
@@ -114,6 +120,7 @@
             <div id="home" class="container home-container">
 
                 <div class="savings-rate">
+                    <div class="click-background"></div>
                     <div class="card savings-card">
                         <h1>Change Savings Rate</h1>
                         <div class="rate-change animate__animated">
@@ -140,11 +147,7 @@
 
                     <div class="title">
                         <h2>Overview</h2>
-                        <select class="timeframe">
-                            <option value="0">Monthly</option>
-                            <option value="1">Bi-Weekly</option>
-                            <option value="2">Weekly</option>
-                        </select>
+                        <button class="btn btn-full reset-btn">Reset Budget</button>
                     </div>
 
                     <div class="card card-overview inc">
@@ -240,9 +243,8 @@
         </div>
     </footer>
 
-</body>
-
-<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+    </body>
 
 <script type="module" src="./resources/js/app.js"></script>
 <script type="module" src="./resources/js/budget.js"></script>

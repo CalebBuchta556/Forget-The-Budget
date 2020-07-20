@@ -56,6 +56,15 @@ export function getSavingsInput () {
     return newRate;
 }
 
+export function restoreListItems () {
+    BudgetControl.budgetData.inputs['inc'].forEach(cur => {
+        addIncItem(cur);
+    })
+    BudgetControl.budgetData.inputs['exp'].forEach(cur => {
+        addExpItem(cur);
+    })
+}
+
 
 // Add inc item to list
 export function addIncItem (incItem) {
@@ -124,4 +133,20 @@ export function updateOverview () {
 
     document.querySelector(DOMStrings.rateText).textContent = `${BudgetControl.budgetData.inputs['rate'].toString()}%`
 
+}
+
+export function switchTheme () {
+    if (event.target.checked) {
+
+        document.documentElement.setAttribute('data-theme', 'dark');
+
+        localStorage.setItem('theme', 'dark');
+
+    } else {
+
+        document.documentElement.setAttribute('data-theme', 'light');
+
+        localStorage.setItem('theme', 'light');
+        
+    }
 }

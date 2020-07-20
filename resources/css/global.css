@@ -9,7 +9,37 @@
     --primary-blue: #539ded;
     --primary-purple: #8790e4;
     --secondary-purple: #7880cb;
+    --container-color: #fff;
+    --header-color: #fff;
+    --card-color: #fff;
     --text-color: #555;
+    --input-background-color: #fafafa;
+    --input-focus-color: #eaeaea;
+    --input-border-color: #f2f2f2;
+    --list-item-color: #fafafa;
+    --close-sheet-btn-color: #f7f7f7;
+    --close-sheet-hover-color: #eaeaea;
+    --sidebar-hover-color: #fafafa;
+    --home-hover-color: #000;
+    --label-hover-color: #fafafa;
+    --input-color: #555;
+}
+
+[data-theme="dark"] {
+    --container-color: #222;
+    --header-color: #333;
+    --card-color: #333;
+    --text-color: #e5e5e5;
+    --input-background-color: #555;
+    --input-focus-color: #666;
+    --input-border-color: #444;
+    --list-item-color: #333;
+    --close-sheet-btn-color: #555;
+    --close-sheet-hover-color: #666;
+    --sidebar-hover-color: #333;
+    --home-hover-color: #999;
+    --label-hover-color: #333;
+    --input-color: #e5e5e5;
 }
 
 /****** BASIC SETUP ******/
@@ -20,7 +50,7 @@
 
 html,
 body {
-    color: #555;
+    color: var(--text-color);
     padding: 0;
     margin: 0;
     overflow-x: hidden;
@@ -28,7 +58,7 @@ body {
 }
 
 html {
-    background-color: #555;
+    background-color: #333;
 }
 
 body {
@@ -68,12 +98,6 @@ p {
 
 /****** REUSEABLE COMPONENTS ******/
 
-.input-error, {
-    border: 1px solid var(--primary-red);
-    color: var(--primary-red);
-}
-
-
 ul {
     margin: 0;
     padding: 0;
@@ -84,8 +108,8 @@ ul li {
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 5px;
+    background-color: var(--card-color);
+    border-radius: 15px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s, transform 0.3s;
 }
@@ -97,7 +121,7 @@ ul li {
 
 .container {
     display: flex;
-    background-color: #fafafa;
+    background-color: var(--container-color);
     flex: 1;
     padding: 30px 30px;
     overflow-y: scroll;
@@ -114,16 +138,17 @@ input[type=number]::-webkit-outer-spin-button {
 
 input {
     border: none;
-    background-color: #fafafa;
+    background-color: var(--input-background-color);
+    color: var(--input-color);
     padding: 10px;
     margin: 0;
     font-size: 14px;
-    border-right: 1px solid #f2f2f2;
+    border-right: 1px solid var(--input-border-color);
 }
 
 *:focus {
     outline: none;
-    background-color: #eaeaea;
+    background-color: var(--input-focus-color);
 }
 
 /****** BUTTONS ******/
@@ -168,7 +193,7 @@ button {
 }
 
 .btn-full:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
 }
 
@@ -194,10 +219,10 @@ button {
 }
 
 .close-sheet {
-    background-color: #fafafa;
+    background-color: var(--close-sheet-btn-color);
     padding-top: 7px;
     border-radius: 99px;
-    color: #777;
+    color: var(--text-color);
     font-size: 24px;
     width: 50px;
     height: 50px;
@@ -205,7 +230,7 @@ button {
 }
 
 .close-sheet:hover {
-    background-color: #eaeaea;
+    background-color: var(--close-sheet-hover-color);
 }
 
 /****** HEADER ******/
@@ -213,14 +238,24 @@ button {
 header {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100vw;
     height: 70px;
     padding: 0 30px 0 15px;
-    background-color: #fff;
+    background-color: var(--header-color);
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     z-index: 3;
+}
+
+.dark-mode-switch {
+    display: none;
+}
+
+.dark-mode-label ion-icon {
+    margin-left: 10px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .logo {
@@ -231,16 +266,27 @@ header {
     width: 100px;
 }
 
-.safe-to-spend {
+.middle {
     flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.safe-to-spend {
     text-align: center;
+    margin-top: 15px;
+    background-color: var(--header-color);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 30px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .safe-to-spend h3 {
     text-transform: uppercase;
-    font-size: 150%;
+    font-size: 180%;
     font-weight: 900;
-    color: #555;
+    color: var(--text-color);
 }
 
 .safe-to-spend h3 span {
@@ -259,17 +305,17 @@ header {
     font-weight: 600;
     margin: 5px 15px auto 15px;
     padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
+    border-bottom: 3px solid transparent;
 }
 
 .main-nav ul li:hover {
-    border-bottom: 2px solid var(--primary-green);
+    border-bottom: 3px solid var(--primary-green);
     padding-bottom: 5px;
     cursor: pointer;
 }
 
 .user {
-    display: none;
+    display: non;
     height: 35px;
     width: 35px;
     overflow: hidden;
@@ -308,7 +354,7 @@ header {
 /****** SIDEBAR ******/
 
 .sidebar {
-    background-color: #fff;
+    background-color: var(--header-color);
     display: flex;
     flex-flow: column;
     box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.1);
@@ -328,7 +374,7 @@ header {
 }
 
 .sidebar label:hover {
-    background-color: #fafafa;
+    background-color: var(--label-hover-color);
     cursor: pointer;
 }
 
@@ -340,9 +386,21 @@ header {
     transition-delay: 1000ms;
 }
 
+.sidebar label ion-icon:active {
+    transform: scale(1, 0.9);
+    margin-top: 2px;
+    margin-bottom: -2px;
+}
+
 .sidebar #lock-closed {
     display: none;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
+    margin-top: 1px;
+}
+
+.sidebar #lock-closed:active {
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 .sidebar input[type=checkbox]:checked ~ label #lock-closed {
@@ -397,7 +455,7 @@ header {
     height: 100%;
     width: 100%;
     font-size: 125%;
-    color: #555;
+    color: var(--text-color);
     text-align: left;
     padding: 15px 15px;
     border-left: 5px solid transparent;
@@ -405,14 +463,14 @@ header {
 
 .sidebar ul li:hover button,
 .sidebar .active {
-    background-color: #fafafa;
+    background-color: var(--sidebar-hover-color);
     cursor: pointer;
 }
 
 .sidebar .home:hover button,
 .sidebar .home-active {
     border-color: #000;
-    color: #000;
+    color: var(--home-hover-color);
 }
 
 .sidebar .inc:hover button,
@@ -461,7 +519,7 @@ header {
     visibility: visible;
     display: flex;
     flex-flow: column;
-    background-color: #fff;
+    background-color: var(--container-color);
     padding: 30px;
     width: 500px;
     border-radius: 0px;
@@ -505,6 +563,10 @@ header {
     flex-flow: row;
     min-height: 40px;
     margin-top: 20px;
+}
+
+.sheet input {
+    color: var(--input-color);
 }
 
 .sheet .add-form input[type=number] {
@@ -567,7 +629,7 @@ header {
 }
 
 .sheet .sheet-content ul li:nth-of-type(odd) {
-    background-color: #fafafa;
+    background-color: var(--list-item-color);
 }
 
 .sheet .sheet-content ul li h3 {
