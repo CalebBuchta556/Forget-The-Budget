@@ -9,7 +9,7 @@
     --primary-blue: #539ded;
     --primary-purple: #8790e4;
     --secondary-purple: #7880cb;
-    --container-color: #fff;
+    --container-color: #f7f7f7;
     --header-color: #fff;
     --card-color: #fff;
     --text-color: #555;
@@ -17,7 +17,7 @@
     --input-focus-color: #eaeaea;
     --input-border-color: #f2f2f2;
     --list-item-color: #fafafa;
-    --close-sheet-btn-color: #f7f7f7;
+    --close-sheet-btn-color: #f2f2f2;
     --close-sheet-hover-color: #eaeaea;
     --sidebar-hover-color: #fafafa;
     --home-hover-color: #000;
@@ -27,8 +27,8 @@
 
 [data-theme="dark"] {
     --container-color: #222;
-    --header-color: #333;
-    --card-color: #333;
+    --header-color: #292929;
+    --card-color: #292929;
     --text-color: #e5e5e5;
     --input-background-color: #555;
     --input-focus-color: #666;
@@ -36,7 +36,7 @@
     --list-item-color: #333;
     --close-sheet-btn-color: #555;
     --close-sheet-hover-color: #666;
-    --sidebar-hover-color: #333;
+    --sidebar-hover-color: #303030;
     --home-hover-color: #999;
     --label-hover-color: #333;
     --input-color: #e5e5e5;
@@ -373,54 +373,23 @@ header {
     display: none;
 }
 
-.sidebar label:hover {
-    background-color: var(--label-hover-color);
+.sidebar label {
+    width: 50px;
     cursor: pointer;
 }
 
 .sidebar label ion-icon {
-    opacity: 0.1;
     padding: 18px;
     font-size: 170%;
-    transition: opacity 0.2s;
-    transition-delay: 1000ms;
-}
-
-.sidebar label ion-icon:active {
-    transform: scale(1, 0.9);
-    margin-top: 2px;
-    margin-bottom: -2px;
-}
-
-.sidebar #lock-closed {
-    display: none;
-    margin-bottom: 3px;
-    margin-top: 1px;
-}
-
-.sidebar #lock-closed:active {
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.sidebar input[type=checkbox]:checked ~ label #lock-closed {
-    display: block;
-    opacity: 1;
-}
-
-.sidebar input[type=checkbox]:checked ~ label #lock-open {
-    display: none;
 }
 
 .sidebar:hover label ion-icon {
     opacity: 1;
 }
 
-.sidebar:hover ul li,
 .sidebar input[type=checkbox]:checked ~ ul li {
     width: 165px;
     transition: width 0.2s;
-    transition-delay: 1000ms;
 }
 
 .sidebar ul li {
@@ -434,13 +403,12 @@ header {
     transition: opacity 0.1s, transform 0.2s;
 }
 
-.sidebar:hover span,
 .sidebar input[type=checkbox]:checked ~ ul li span {
     display: inline-block;
     padding-right: 10px;
     position: absolute;
     transition: opacity 0.1s, transform 0.2s;
-    transition-delay: 1000ms;
+    transition-delay: 100ms;
     opacity: 1;
 }
 
@@ -501,6 +469,53 @@ header {
     vertical-align: -5px;
     font-size: 120%;
     margin-right: 10px;
+}
+
+.mobile-bar {
+    display: none;
+    background-color: var(--card-color);
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    height: 70px;
+    position: fixed;
+    bottom: 3%;
+    border-radius: 20px;
+    width: 95%;
+    margin-left: 2.5%;
+}
+
+.mobile-bar .tag,
+.mobile-bar .goals,
+.mobile-bar .report {
+    display: none;
+}
+
+.mobile-bar ul {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.mobile-bar ul li button {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.mobile-bar ul li button span {
+    font-size: 120%;
+}
+
+.mobile-bar ion-icon {
+    font-size: 250%;
+    margin-bottom: 5px;
 }
 
 /****** SHEETS ******/
@@ -657,7 +672,7 @@ header {
     margin-right: -45px;
     transition: margin-right 0.2s;
 }
-
+ 
 .sheet .sheet-content ul li:hover button {
     margin-right: 0;
 }

@@ -210,11 +210,6 @@
     font-size: 12px;
 }
 
-.title .reset-btn ion-icon {
-    vertical-align: -1px;
-    margin-left: 5px;
-}
-
 .overview,
 .results {
     display: grid;

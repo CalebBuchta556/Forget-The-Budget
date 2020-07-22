@@ -15,16 +15,22 @@ document.getElementById('dark-mode').addEventListener('click', () => {
     UIControl.switchTheme();
 });
 
-document.querySelector('.inc').addEventListener('click', () => {
-    toggleSheet('inc-sheet', 'exp-sheet');
+document.querySelectorAll('.inc').forEach(el => {
+    el.addEventListener('click', () => {
+        toggleSheet('inc-sheet', 'exp-sheet');
+    })
 });
 
-document.querySelector('.exp').addEventListener('click', () => {
-    toggleSheet('exp-sheet', 'inc-sheet');
+document.querySelectorAll('.exp').forEach(el => {
+    el.addEventListener('click', () => {
+        toggleSheet('exp-sheet', 'inc-sheet');
+    })
 });
 
-document.querySelector('.home').addEventListener('click', () => {
-    showHome();
+document.querySelectorAll('.home').forEach(el => {
+    el.addEventListener('click', () => {
+        showHome();
+    })
 });
 
 document.querySelector('.add-inc-btn').addEventListener('click', () => {
