@@ -10,10 +10,6 @@
     .safe-to-spend h3 {
         font-size: 150%;
     }
-    
-    .safe-to-spend h3 span {
-        font-size: 150%;
-    }
 
     .overview .inc,
     .overview .rate {
@@ -39,12 +35,7 @@
     }
 
     .safe-to-spend h3 {
-        font-size: 100%;
-    }
-    
-    .safe-to-spend h3 span {
         font-size: 180%;
-        vertical-align: -3px;
     }
 
     .sidebar {
@@ -85,8 +76,7 @@
     }
 
     .container {
-        margin: 60px 0 120px 0;
-        padding: 0px 10px 120px 10px;
+        padding: 60px 10px;
     }
 
     .sheet {
@@ -133,12 +123,7 @@
     }
 
     .safe-to-spend h3 {
-        font-size: 120%;
-    }
-    
-    .safe-to-spend h3 span {
         font-size: 130%;
-        vertical-align: -1px;
     }
 
     .sheet {
@@ -193,6 +178,14 @@
 
     .results .card {
         height: 300px;
+    }
+
+    .results .card .content {
+        font-size: 150%;
+    }
+
+    .results .history {
+        margin-bottom: 100px;
     }
 
     .savings-rate {
