@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forget The Budget</title>
 
+    <link rel="icon" type="image/png" href="./resources/img/site-icon.png">
+
     <link rel="stylesheet" type="text/css" href="./resources/css/global.css">
     <link rel="stylesheet" type="text/css" href="./resources/css/home.css">
     <link rel="stylesheet" type="text/css" href="./resources/css/income.css">
@@ -22,13 +24,12 @@
             </div>
             <div class="middle">
                 <div class="safe-to-spend">
-                    <h3>You can spend <span class="safe-txt">$0</span> this month</h3>
+                    <h3>Safe to spend: <span class="safe-txt">$0</span></h3>
                 </div>
             </div>
             <div class="main-nav">
                 <ul>
-                    <li><a class="btn-simple" href="https://github.com/CalebBuchta556/Safe-To-Spend" target="_blank">View Source Code</a></li>
-                    <li><a class="btn-simple" href="#">Contact</a></li>
+                    <li><a class="btn-simple" href="mailto:hello@forgetthebudget.com">Contact</a></li>
                 </ul>
             </div>
             <!-- <div class="dark-mode"> -->
@@ -86,7 +87,7 @@
             <div id="inc-sheet" class="sheet inc-sheet">
                 <div class="top">
                     <h1>Income Sources</h1>
-                    <button class="close-sheet close-inc-sheet"><ion-icon name="arrow-back-outline"></ion-icon></button>
+                    <button class="close-sheet close-inc-sheet"><ion-icon name="close-outline"></ion-icon></button>
                 </div>
                 <div class="sheet-content">
                     <p>Money from a job, side hustle, or anywhere else.</p>
@@ -111,15 +112,15 @@
             <div id="exp-sheet" class="sheet exp-sheet">
                 <div class="top">
                     <h1>Estimated Expenses</h1>
-                    <button class="close-sheet close-exp-sheet"><ion-icon name="arrow-back-outline"></ion-icon></button>
+                    <button class="close-sheet close-exp-sheet"><ion-icon name="close-outline"></ion-icon></button>
                 </div>
                 <div class="sheet-content">
                     <p>Mortgage, car payment, gas, groceries, etc.</p>
                     <div id="add-form" class="add-form add-exp-form animate__animated">
                         <input type="text" class="exp-description description" placeholder="Mortgage">
-
+                        
                         <input type="number" class="exp-amount amount" placeholder="1700">
-
+                        
                         <button type="submit" class="add-exp-btn btn btn-full"><ion-icon name="add-outline"></ion-icon></button>
                     </div>
                     <div class="sheet-list">
@@ -128,11 +129,21 @@
                         </ul>
                     </div>
                 </div>
-
+                
                 <div class="clear-btn">
                     <button id="clear-exp-btn" class="btn btn-ghost clear-exp-btn">Clear</button>
                 </div>
             </div>
+
+            <!-- <div id="settings-sheet" class="sheet settings-sheet">
+                <div class="top">
+                    <h1>Settings</h1>
+                    <button class="close-sheet close-exp-sheet"><ion-icon name="close-outline"></ion-icon></button>
+                </div>
+                <div class="sheet-content">
+
+                </div>
+            </div> -->
 
             <div id="home" class="container home-container">
 
@@ -153,11 +164,13 @@
                     <div class="card card-header">
                         <h2>Welcome!</h2>
 
-                        <p>Safe-To-Spend uses your last months income to pay for your current months expenses. It is recommended to have a buffer of cash in your account to not only make budgeting easier, but for greater peace of mind! Safe-To-Spend was designed for people who want their budget out of sight, but not out of mind.</p>
+                        <p>Forget The Budget was designed for people who want their budget out of sight, but not out of mind.</p>
+                        
+                        <p>Forget The Budget uses your last months income, estimated expenses, and a chosen savings rate to tell you exactly how much you can spend and still meet your savings goal. It is recommended to have at least a one month buffer of cash in your account to not only make budgeting easier, but for greater peace of mind!</p>
 
-                        <p>The Safe-To-Spend amount indicated above is intended to be spent on eating out, entertainment, and other non-essential purchases.</p>
+                        <p>The Safe To Spend amount indicated above is intended to be spent on eating out, entertainment, and other non-essential purchases.</p>
 
-                        <p>For more information about setting up and using Safe-To-Spend, please <button class="read-more">click here</button>.</p>
+                        <p>Have questions? Feel free to email <a href="mailto:hello@forgetthebudget.com">Hello@ForgetTheBudget.com</a>.</p>
 
                         <button class="close close-welcome-btn"><ion-icon name="close-outline"></ion-icon></button>
                     </div>
@@ -180,7 +193,7 @@
                     </div>
 
                     <div class="card card-overview rate">
-                        <button class="btn btn-full rate-btn">Change Rate</button>
+                        <button class="btn btn-full rate-btn rate">Change Rate</button>
                         <ion-icon name="pulse-outline" ></ion-icon>
                         <h3 class="rate-txt">0%</h3>
                         <p>Savings Rate</p>
@@ -200,20 +213,20 @@
                         <h2>Breakdown</h2>
                     </div>
 
-                    <div class="card inc large-left">
+                    <div class="card large-left">
                         <h2>Income</h2>
                         <div class="content">
                             <div class="coming-soon">COMING SOON</div>
                         </div>
-                        <button class="btn btn-full res-inc-btn">Add Income</button>
+                        <button class="btn btn-full inc">Add Income</button>
                     </div>
 
-                    <div class="card exp large-right">
+                    <div class="card large-right">
                         <h2>Expenses</h2>
                         <div class="content">
                             <div class="coming-soon">COMING SOON</div>
                         </div>
-                        <button class="btn btn-full res-exp-btn">Add Expense</button>
+                        <button class="btn btn-full exp">Add Expense</button>
                     </div>
 
                     <div class="card goals large-left">

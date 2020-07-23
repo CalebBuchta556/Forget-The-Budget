@@ -9,11 +9,11 @@
     --primary-blue: #539ded;
     --primary-purple: #8790e4;
     --secondary-purple: #7880cb;
-    --container-color: #f7f7f7;
+    --container-color: #fafafa;
     --header-color: #fff;
     --card-color: #fff;
     --text-color: #555;
-    --input-background-color: #fafafa;
+    --input-background-color: #f5f5f5;
     --input-focus-color: #eaeaea;
     --input-border-color: #f2f2f2;
     --list-item-color: #fafafa;
@@ -48,6 +48,12 @@
     box-sizing: border-box;
 }
 
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
+
 html,
 body {
     color: var(--text-color);
@@ -58,7 +64,7 @@ body {
 }
 
 html {
-    background-color: #333;
+    background-color: var(--container-color);
 }
 
 body {
@@ -274,12 +280,8 @@ header {
 
 .safe-to-spend {
     text-align: center;
-    margin-top: 15px;
     background-color: var(--header-color);
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 30px;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    padding: 0px;
 }
 
 .safe-to-spend h3 {
@@ -290,8 +292,8 @@ header {
 }
 
 .safe-to-spend h3 span {
-    font-size: 180%;
-    vertical-align: -5px;
+    font-size: 150%;
+    vertical-align: -3px;
     margin: 0 5px;
     color: var(--primary-green);
 }
@@ -489,7 +491,8 @@ header {
 
 .mobile-bar .tag,
 .mobile-bar .goals,
-.mobile-bar .report {
+.mobile-bar .report,
+.mobile-bar .settings {
     display: none;
 }
 
@@ -507,6 +510,7 @@ header {
     align-items: center;
     justify-content: center;
     color: var(--text-color);
+    width: 60px;
 }
 
 .mobile-bar ul li button span {

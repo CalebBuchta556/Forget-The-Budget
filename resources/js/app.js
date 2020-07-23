@@ -100,21 +100,13 @@ document.querySelector('.close-welcome-btn').addEventListener('click', () => {
     localStorage.setItem('isClosed', JSON.stringify(isClosed));
 })
 
-document.querySelector('.res-inc-btn').addEventListener('click', () => {
-    toggleSheet('inc-sheet', 'exp-sheet')
-})
-
-document.querySelector('.res-exp-btn').addEventListener('click', () => {
-    toggleSheet('exp-sheet', 'inc-sheet')
-})
-
 document.querySelector('.change-rate').addEventListener('click', () => {
     changeSavingsRate();
 })
 
 document.querySelector('.click-background').addEventListener('click', () => {
-    closeRate();
-})
+        closeRate();
+    })
 
 document.querySelector('.reset-btn').addEventListener('click', () => {
     BudgetControl.changeRate(0);
@@ -123,22 +115,12 @@ document.querySelector('.reset-btn').addEventListener('click', () => {
     console.log('clicked');
 })
 
-var formatNumber = function(num, type) {
-    var numSplit, int, dec, type;
+export function formatNumber (num) {
+    let int;
 
-    num = Math.abs(num);
-    num = num.toFixed(2);
+    int = Math.round(num);
 
-    numSplit = num.split('.');
-
-    int = numSplit[0];
-    if (int.length > 3) {
-        int = int.substr(0, int.length - 3) + ',' + int.substr(int.length - 3, 3);
-    }
-
-    dec = numSplit[1];
-
-    return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;
+    return `$${int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
 };
 
 // Add new income item to list
@@ -415,9 +397,9 @@ function init () {
 
     welcomeClosed = JSON.parse(localStorage.getItem('isClosed'));
 
-    // if (welcomeClosed === 1) {
-    //     closeWelcome();
-    // }
+    if (welcomeClosed === 1) {
+        closeWelcome();
+    }
 
     const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
 

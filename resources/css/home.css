@@ -91,8 +91,8 @@
 .savings-card .close,
 .card-header .close {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: 0px;
+    right: -5px;
     transition: transform 0.2s;
 }
 
@@ -184,7 +184,7 @@
 
 .results .btn {align-self: flex-end;}
 
-.results .exp button {background-color: var(--primary-red);}
+.results .exp {background-color: var(--primary-red);}
 
 .results .history button {background-color: var(--primary-blue);}
 

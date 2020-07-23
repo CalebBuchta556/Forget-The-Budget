@@ -1,5 +1,6 @@
 /***** UI CONTROLLER *****/
 import * as BudgetControl from './budget.js';
+import * as App from './app.js';
 
 export var DOMStrings = {
     safeToSpendText: '.safe-txt',
@@ -72,12 +73,12 @@ export function addIncItem (incItem) {
     var html, newHtml;
 
     // Create html template
-    html = `<li id="%inc-id%" class="inc-container"><h3 class="inc-des-label">%inc-description%</h3><p class="inc-amt-label">$%inc-value%</p><button class="trash-btn"><ion-icon name="trash-outline"></ion-icon></button></li>`;
+    html = `<li id="%inc-id%" class="inc-container"><h3 class="inc-des-label">%inc-description%</h3><p class="inc-amt-label">%inc-value%</p><button class="trash-btn"><ion-icon name="trash-outline"></ion-icon></button></li>`;
 
     // Replace placeholder text with data
     newHtml = html.replace('%inc-id%', incItem.id);
     newHtml = newHtml.replace('%inc-description%', incItem.description);
-    newHtml = newHtml.replace('%inc-value%', incItem.value);
+    newHtml = newHtml.replace('%inc-value%', App.formatNumber(incItem.value));
 
     // Insert html into the DOM
     document.querySelector(DOMStrings.incList).insertAdjacentHTML('beforeend', newHtml);
@@ -89,12 +90,12 @@ export function addExpItem (expItem) {
     var html, newHtml;
 
     // Create html template
-    html = `<li id="%exp-id%" class="exp-container"><h3 class="exp-des-label">%exp-description%</h3><p class="exp-amt-label">$%exp-value%</p><button class="trash-btn"><ion-icon name="trash-outline"></ion-icon></button></li>`;
+    html = `<li id="%exp-id%" class="exp-container"><h3 class="exp-des-label">%exp-description%</h3><p class="exp-amt-label">%exp-value%</p><button class="trash-btn"><ion-icon name="trash-outline"></ion-icon></button></li>`;
 
     // Replace placeholder text with data
     newHtml = html.replace('%exp-id%', expItem.id);
     newHtml = newHtml.replace('%exp-description%', expItem.description);
-    newHtml = newHtml.replace('%exp-value%', expItem.value);
+    newHtml = newHtml.replace('%exp-value%', App.formatNumber(expItem.value));
 
     // Insert html into the DOM
     document.querySelector(DOMStrings.expList).insertAdjacentHTML('beforeend', newHtml);
@@ -123,13 +124,13 @@ export function clearList (type) {
 
 export function updateOverview () {
 
-    document.querySelector(DOMStrings.incomeText).textContent = `$${BudgetControl.budgetData.totals['inc'].toString()}`
+    document.querySelector(DOMStrings.incomeText).textContent = App.formatNumber(BudgetControl.budgetData.totals['inc']);
 
-    document.querySelector(DOMStrings.expenseText).textContent = `$${BudgetControl.budgetData.totals['exp'].toString()}`
+    document.querySelector(DOMStrings.expenseText).textContent = App.formatNumber(BudgetControl.budgetData.totals['exp']);
 
-    document.querySelector(DOMStrings.savingsText).textContent = `$${BudgetControl.budgetData.totals['savings'].toString()}`
+    document.querySelector(DOMStrings.savingsText).textContent = App.formatNumber(BudgetControl.budgetData.totals['savings']);
 
-    document.querySelector(DOMStrings.safeToSpendText).textContent = `$${BudgetControl.budgetData.totals['safe'].toString()}`
+    document.querySelector(DOMStrings.safeToSpendText).textContent = App.formatNumber(BudgetControl.budgetData.totals['safe']);
 
     document.querySelector(DOMStrings.rateText).textContent = `${BudgetControl.budgetData.inputs['rate'].toString()}%`
 
