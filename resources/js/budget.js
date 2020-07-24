@@ -83,11 +83,8 @@ export function changeRate (rate) {
 function calculateTotal (type) {
     let sum = 0;
 
-    sum = budgetData.inputs[type].reduce(
-        (acc, cur) => {
-            return acc + cur.value;
-        },
-        0
+    sum = budgetData.inputs[type].reduce((acc, cur) => acc + cur.value, 0
+
     );
 
     budgetData.totals[type] = sum;

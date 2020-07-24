@@ -424,12 +424,11 @@ function init () {
 
         // Default setting for localStorage to prevent null error
         let defaultString = '{\"inputs\":{\"inc\":[],\"exp\":[],\"rate\":0},\"totals\":{\"inc\":0,\"exp\":0,\"savings\":0,\"safe\":0}}';
-        console.log(defaultString);
 
         localStorage.setItem('storedBudget', defaultString);
 
     }
-    
+
     // Retrieve previous stored budget
     BudgetControl.getStoredBudget();
     

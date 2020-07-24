@@ -137,6 +137,10 @@
     margin-top: 10px;
 }
 
+.overview .card-header ul li {
+    font-size: 90%;
+}
+
 .card-overview {
     display: flex;
     flex-flow: column;
