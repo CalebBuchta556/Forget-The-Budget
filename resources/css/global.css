@@ -59,18 +59,19 @@ body {
     color: var(--text-color);
     padding: 0;
     margin: 0;
-    overflow-x: hidden;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 html {
     background-color: var(--container-color);
+    height: 100%;
 }
 
 body {
     display: flex;
     flex-flow: column;
     height: 100vh;
+    /* overflow: hidden; */
 }
 
 /****** HEADINGS ******/
@@ -127,9 +128,10 @@ ul li {
 
 .container {
     display: flex;
+    height: 100%;
     background-color: var(--container-color);
     flex: 1;
-    padding: 30px 30px;
+    padding: 100px 30px;
     overflow-y: scroll;
     flex-flow: column;
     align-items: center;
@@ -246,12 +248,13 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: 70px;
     padding: 0 30px 0 15px;
     background-color: var(--header-color);
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     z-index: 3;
+    position: absolute;
 }
 
 .dark-mode-switch {
@@ -343,6 +346,7 @@ header {
     flex: 1;
     display: flex;
     flex-flow: row;
+    height: 100%;
 }
 
 /****** APP CONTENT ******/
@@ -350,7 +354,7 @@ header {
 .app-content {
     flex: 1;
     display: flex;
-    position: relative;
+    height: 100%;
 }
 
 /****** SIDEBAR ******/
@@ -361,6 +365,8 @@ header {
     flex-flow: column;
     box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.1);
     z-index: 2;
+    height: 100%;
+    padding-top: 70px;
 }
 
 .sidebar .settings button {
@@ -538,6 +544,7 @@ header {
     flex-flow: column;
     background-color: var(--container-color);
     padding: 30px;
+    padding-top: 100px;
     width: 500px;
     border-radius: 0px;
     box-shadow: 3px 0px 5px rgba(0, 0, 0, 0.1);
