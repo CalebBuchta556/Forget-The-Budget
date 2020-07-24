@@ -136,12 +136,14 @@ export function updateOverview () {
 
 }
 
-export function switchTheme () {
+export function switchTheme (event) {
     if (event.target.checked) {
 
         document.documentElement.setAttribute('data-theme', 'dark');
 
         localStorage.setItem('theme', 'dark');
+
+        document.getElementById('dark-mode-switch').checked = true;
 
     } else {
 
@@ -149,5 +151,6 @@ export function switchTheme () {
 
         localStorage.setItem('theme', 'light');
         
+        document.getElementById('dark-mode-switch').checked = false;
     }
 }

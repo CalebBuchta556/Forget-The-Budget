@@ -35,6 +35,10 @@
     }
 
     .safe-to-spend h3 {
+        font-size: 120%;
+    }
+
+    .safe-to-spend span {
         font-size: 180%;
     }
 
@@ -57,11 +61,16 @@
 
 @media only screen and (max-width: 414px) {
     header {
+        flex-flow: column;
         justify-content: center;
         align-items: center;
-        padding: 0;
-        height: 60px;
+        padding: 10px 0;
+        height: 75px;
         position: fixed;
+    }
+
+    .card {
+        height: 200px;
     }
 
     .app-body,
@@ -71,7 +80,6 @@
         overflow: unset;
         height: 100vh;
         position: absolute;
-        height: 100vh;
         width: 100vw;
     }
 
@@ -79,38 +87,18 @@
         padding: 60px 10px;
     }
 
-    .sheet {
-        position: fixed;
-        margin-top: 60px;
-        padding: 20px 10px;
-    }
-
-    .sheet .clear-btn {
-        position: fixed;
-        bottom: 25%;
-        left: 40%;
-    }
-
-    .sheet .close-sheet {
-        background-color: transparent;
-    }
-
+    
     .dark-mode-label {
-        display: block;
+        display: none;
         margin: 5px 25px 0 0;
     }
     
     .logo {
-        display: none;
+        display: non;
     }
     
     .logo img {
         width: 100px;
-    }
-
-    .middle {
-        justify-content: left;
-        padding-left: 30px;
     }
     
     .safe-to-spend {
@@ -121,35 +109,66 @@
         border-radius: 0px;
         margin: 0px;
     }
-
+    
     .safe-to-spend h3 {
-        font-size: 130%;
+        font-size: 100%;
     }
 
+    .safe-to-spend span {
+        font-size: 200%;
+    }
+    
+    .sheet .top h1 {
+        font-size: 26px;
+    }
+    
     .sheet {
+        position: fixed;
+        padding: 30px 20px;
+        z-index: 4;
+        padding-bottom: 85px;
         width: 100vw;
     }
 
-    .sheet .top h1 {
-        font-size: 26px;
+    .sheet-content {
+        height: 100%;
+    }
+
+    .sheet-content ul li {
+        padding: 0;
+    }
+
+    .sheet .clear-btn {
+        position: fixed;
+        bottom: 15%;
+        left: 40%;
+    }
+
+    .sheet .close-sheet {
+        background-color: transparent;
+        font-size: 200%;
     }
 
     .sheet .clear-btn {
         bottom: 15%;
         left: 38%;
     }
-
+    
     .card-header p,
     .card-header p button {
         font-size: 100%;
     }
-
+    
     .sidebar {
         display: none;
     }
-
+    
     .mobile-bar {
         display: flex;
+    }
+
+    .overview {
+        margin-top: 30px;
     }
 
     .overview .card-header {
@@ -172,7 +191,7 @@
 
     .overview,
     .results {
-        gap: 30px;
+        gap: 20px;
         padding: 30px 10px;
     }
 

@@ -11,18 +11,22 @@ window.updateOverview = updateOverview;
 var isClosed = 0;
 
 // Event lisenters
-document.getElementById('dark-mode').addEventListener('click', () => {
-    UIControl.switchTheme();
+document.querySelectorAll('.dark-mode-switch').forEach(el => {
+    el.addEventListener('click', (event) => {
+        UIControl.switchTheme(event);
+    })
 });
 
 document.querySelectorAll('.inc').forEach(el => {
     el.addEventListener('click', () => {
+        closeSettings();
         toggleSheet('inc-sheet', 'exp-sheet');
     })
 });
 
 document.querySelectorAll('.exp').forEach(el => {
     el.addEventListener('click', () => {
+        closeSettings();
         toggleSheet('exp-sheet', 'inc-sheet');
     })
 });
@@ -30,6 +34,14 @@ document.querySelectorAll('.exp').forEach(el => {
 document.querySelectorAll('.home').forEach(el => {
     el.addEventListener('click', () => {
         showHome();
+        closeSettings();
+    })
+});
+
+document.querySelectorAll('.settings').forEach(el => {
+    el.addEventListener('click', () => {
+        showHome();
+        toggleSettings();
     })
 });
 
@@ -49,13 +61,16 @@ document.querySelector('.close-exp-sheet').addEventListener('click', () => {
     toggleSheet('exp-sheet', 'exp-sheet');
 });
 
+document.querySelector('.close-set-sheet').addEventListener('click', () => {
+    closeSettings();
+});
+
 document.querySelector('.inc-list').addEventListener('click', () => {
     let itemID;
 
     itemID = event.target.parentNode.parentNode.id;
 
     deleteIncItem(itemID);
-    console.log(itemID);
 });
 
 document.querySelector('.exp-list').addEventListener('click', () => {
@@ -108,11 +123,12 @@ document.querySelector('.click-background').addEventListener('click', () => {
         closeRate();
     })
 
-document.querySelector('.reset-btn').addEventListener('click', () => {
-    BudgetControl.changeRate(0);
-    clearAllItems('inc');
-    clearAllItems('exp');
-    console.log('clicked');
+document.querySelectorAll('.reset-btn').forEach(el => {
+    el.addEventListener('click', () => {
+        BudgetControl.changeRate(0);
+        clearAllItems('inc');
+        clearAllItems('exp');
+    })
 })
 
 export function formatNumber (num) {
@@ -352,6 +368,28 @@ function toggleSheet(open, close) {
     }
 }
 
+// Open settings sheet
+function toggleSettings () {
+    let item;
+
+    item = document.querySelector('.settings-sheet');
+
+    if (item.style.visibility === 'visible') {
+        item.style.visibility = 'hidden';
+    } else {
+        item.style.visibility = 'visible';
+    }
+}
+
+// Close settings sheet
+function closeSettings () {
+    let item;
+
+    item = document.querySelector('.settings-sheet');
+
+    item.style.visibility = 'hidden';
+}
+
 // Show home container and hide all others
 function showHome() {
     document.getElementById('inc-sheet').style.visibility = 'hidden';
@@ -382,32 +420,32 @@ function closeRate () {
 
 // Initialization
 function init () {
-
+    
     // Retrieve previous stored budget
     BudgetControl.getStoredBudget();
-
+    
     // Restore UI list items
     UIControl.restoreListItems();
-
+    
     // Update the UI with stored budget data
     UIControl.updateOverview();
-
+    
     // Check if welcome header is closed
     let welcomeClosed;
-
+    
     welcomeClosed = JSON.parse(localStorage.getItem('isClosed'));
-
+    
     if (welcomeClosed === 1) {
         closeWelcome();
     }
-
+    
     const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-
+    
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
-
+        
         if (currentTheme === 'dark') {
-            toggleSwitch.checked = true;
+            document.getElementById('dark-mode-switch').checked = true;
         }
     }
 }

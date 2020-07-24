@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="./resources/css/income.css">
     <link rel="stylesheet" type="text/css" href="./resources/css/expense.css">
     <link rel="stylesheet" type="text/css" href="./resources/css/reports.css">
+    <link rel="stylesheet" type="text/css" href="./resources/css/settings.css">
     <link rel="stylesheet" type="text/css" href="./resources/css/queries.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
@@ -24,7 +25,7 @@
             </div>
             <div class="middle">
                 <div class="safe-to-spend">
-                    <h3>Safe to spend: <span class="safe-txt">$0</span></h3>
+                    <h3>You can spend <span class="safe-txt">$0</span> this month</h3>
                 </div>
             </div>
             <div class="main-nav">
@@ -60,7 +61,7 @@
                 <li class="report"><button><ion-icon name="document-outline"></ion-icon><span>Reports</span><br><span class="tag">COMING SOON</span></button></li>
             </ul>
             <ul>
-                <li class="settings"><button><ion-icon name="settings-outline"></ion-icon><span>Settings</span><br><span class="tag">COMING SOON</span></button></li>
+                <li class="settings"><button><ion-icon name="settings-outline"></ion-icon><span>Settings</span></button></li>
             </ul>
             
         </div>
@@ -90,7 +91,7 @@
                     <button class="close-sheet close-inc-sheet"><ion-icon name="close-outline"></ion-icon></button>
                 </div>
                 <div class="sheet-content">
-                    <p>Money from a job, side hustle, or anywhere else.</p>
+                    <p>Enter all income from last month.</p>
                     <div id="add-form" class="add-form add-inc-form animate__animated">
                         <input type="text" class="inc-description description" placeholder="Salary">
 
@@ -115,7 +116,7 @@
                     <button class="close-sheet close-exp-sheet"><ion-icon name="close-outline"></ion-icon></button>
                 </div>
                 <div class="sheet-content">
-                    <p>Mortgage, car payment, gas, groceries, etc.</p>
+                    <p>Enter all upcoming expenses.</p>
                     <div id="add-form" class="add-form add-exp-form animate__animated">
                         <input type="text" class="exp-description description" placeholder="Mortgage">
                         
@@ -129,24 +130,35 @@
                         </ul>
                     </div>
                 </div>
-                
                 <div class="clear-btn">
                     <button id="clear-exp-btn" class="btn btn-ghost clear-exp-btn">Clear</button>
                 </div>
             </div>
-
-            <!-- <div id="settings-sheet" class="sheet settings-sheet">
+            
+            <div id="settings-sheet" class="sheet settings-sheet">
                 <div class="top">
                     <h1>Settings</h1>
-                    <button class="close-sheet close-exp-sheet"><ion-icon name="close-outline"></ion-icon></button>
+                    <button class="close-sheet close-set-sheet"><ion-icon name="close-outline"></ion-icon></button>
                 </div>
-                <div class="sheet-content">
-
+                <div class="settings-content">
+                    <ul>
+                        <li>
+                            <h2>Toggle dark/light mode</h2>
+                            <label class="switch">
+                                <input id="dark-mode-switch" class="dark-mode-switch" type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                        </li>
+                        <li>
+                            <h2>Reset budget</h2>
+                            <button class="btn btn-full reset-btn">Reset</button>
+                        </li>
+                    </ul>
                 </div>
-            </div> -->
-
+            </div>
+            
             <div id="home" class="container home-container">
-
+                
                 <div class="savings-rate">
                     <div class="click-background"></div>
                     <div class="card savings-card">
@@ -168,16 +180,15 @@
                         
                         <p>Forget The Budget uses your last months income, upcoming expenses, and a chosen savings rate to tell you exactly how much you can spend and still meet your savings goal. It is recommended to have at least a one month buffer of cash in your account to not only make budgeting easier, but for greater peace of mind!</p>
 
-                        <p>The Safe To Spend amount indicated above is intended to be spent on non-essential purchases such as dining out and entertainment.</p>
+                        <p>The amount indicated above is intended to be spent on non-essential purchases such as dining out and entertainment.</p>
 
-                        <p>Have questions? Feel free to email <a href="mailto:hello@forgetthebudget.com">Hello@ForgetTheBudget.com</a>.</p>
+                        <p>Have questions? Feel free to email <a href="mailto:hello@forgetthebudget.com">hello@ForgetTheBudget.com</a>.</p>
 
                         <button class="close close-welcome-btn"><ion-icon name="close-outline"></ion-icon></button>
                     </div>
 
                     <div class="title">
                         <h2>Overview</h2>
-                        <button class="btn btn-full reset-btn">Reset Budget</button>
                     </div>
 
                     <div class="card card-overview inc">
